@@ -5,6 +5,8 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
+const staticAsset = require('static-asset');
+const staticAssetStrategy = require('./lib/static_asset/strategy');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
@@ -20,6 +22,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(staticAsset(__dirname + '/public/', staticAssetStrategy));
+app.use(staticAssetStrategy.assetPathRewrite);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 
