@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ROOT=$(git rev-parse --show-toplevel)
+
+# create pre-commit hooks
+echo "creating git pre-commit hooks"
+ln -sf $ROOT/misc/git/pre-commit $ROOT/.git/hooks/pre-commit

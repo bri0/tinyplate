@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "preinstall": "misc/git/create-pre-commit-file",
     "build-css": "node-sass --include-path scss scss/main.scss public/css/main.css",
     "build-js": "babel client/indexes --out-dir public/js/bundle --presets es2015-ie",
     "start": "nodemon --ext scss,js --ignore public/js/bundle --exec \"npm run build-css; npm run build-js; node ./bin/www\""
