@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Runs any hooks in mics/git/hooks, and exits if any of them fail.
+set -e
+
+ROOT=$(git rev-parse --show-toplevel)
+
+for hook in $ROOT/misc/git/hooks/*; do
+  $hook
+done

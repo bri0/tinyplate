@@ -1,0 +1,9 @@
+if [ -z "$(which eslint)" ]; then
+  echo "eslint not found, please run: npm install -g eslint"
+  exit 1
+fi
+
+[ -z "$(eslint .)" ] && exit 0
+
+echo "linting error, please run: eslint ."
+exit 1
