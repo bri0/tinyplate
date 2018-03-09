@@ -1,0 +1,15 @@
+// will be built to public/css/main.css
+
+$font-stack: "Lucida Grande", Helvetica, Arial, sans-serif;
+$primary-color: black;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  padding: 50px;
+}
+
+a {
+  color: #00B7FF;
+  font: 100% $font-stack;
+}
