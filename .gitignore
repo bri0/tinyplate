@@ -34,3 +34,4 @@ public/css/main.css
 
 # Compiled JS
 public/js/bundle/*
+tmp/*

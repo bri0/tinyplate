@@ -1,6 +1,8 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  .starter-template
+    h1=`${error.status} ${error.message}`
+    p.lead=error.detail
+    pre.d-none #{error.stack}
+    a.btn.btn-primary(href='/') Take Me Home

@@ -5,8 +5,8 @@
   "scripts": {
     "preinstall": "misc/git/create-pre-commit-file",
     "build-css": "node-sass --include-path scss scss/main.scss public/css/main.css",
-    "build-js": "babel client/indexes --out-dir public/js/bundle --presets es2015-ie",
-    "start": "nodemon --ext scss,js --ignore public/js/bundle --exec \"npm run build-css; npm run build-js; node ./bin/www\"",
+    "build-js": "webpack client/indexes/main.js --output tmp/main.js; babel tmp --out-dir public/js/bundle --presets es2015-ie",
+    "start": "nodemon --ext scss,js --ignore tmp --ignore public/js/bundle --exec \"npm run build-css; npm run build-js; node ./bin/www\"",
     "test": "mocha **/*.test.js --reporter spec",
     "posttest": "nsp check; snyk test"
   },
@@ -30,6 +30,8 @@
     "node-sass": "^4.7.2",
     "nodemon": "^1.17.1",
     "nsp": "^3.2.1",
-    "snyk": "^1.69.10"
+    "snyk": "^1.69.10",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
   }
 }
